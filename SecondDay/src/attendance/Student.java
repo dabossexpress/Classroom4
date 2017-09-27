@@ -1,9 +1,12 @@
 package attendance;
 
 public class Student implements Attendee {
+	boolean present = false;
 	private String firstName;
 	private String lastName;
-	public Student() {
+	public Student(a,b) {
+		this.firstName = a;
+		this.lastName = b;
 		// TODO Auto-generated constructor stub
 	}
 
