@@ -1,0 +1,53 @@
+package attendance;
+
+public class Student implements Attendee {
+	private String firstName;
+	private String lastName;
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean isPresent() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setPresent(boolean present) {
+		// TODO Auto-generated method stub
+		this.present = present;
+	}
+
+	@Override
+	public String getFirstName() {
+		// TODO Auto-generated method stub
+		return firstName;
+	}
+
+	@Override
+	public String getLastName() {
+		// TODO Auto-generated method stub
+		return lastName;
+	}
+
+	@Override
+	public boolean mathces(String first, String last) {
+		// TODO Auto-generated method stub
+		return first.toLowerCase().equals(firstName.toLowerCase()) && last.toLowerCase().equals(lastName.toLowerCase())
+;
+	}
+
+	@Override
+	public boolean matches(String last) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getReportString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
