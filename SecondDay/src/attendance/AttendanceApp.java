@@ -146,26 +146,5 @@ public class AttendanceApp {
 			students[i] = new Student(first, last);
 		}
 	}
-	
-	public class Student implements Attendee {
-		private String firstName;
-		private String lastName;
-	}
-	public void setPresent(boolean present) {
-		this.present = present;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public boolean mathces(String first, String last) {
-		return first.toLowerCase().equals(firstName.toLowerCase()) && last.toLowerCase().equals(lastName.toLowerCase())
-	}
-	public boolean matches(String last) {
-		
-	}
-
 
 }

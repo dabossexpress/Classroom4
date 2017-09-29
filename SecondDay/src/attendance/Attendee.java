@@ -36,6 +36,8 @@ public interface Attendee {
 	//cut off the last three letters and replace with "..."
 	String getReportString();
 
+	boolean matches(String first, String last);
+
 
 	
 }
