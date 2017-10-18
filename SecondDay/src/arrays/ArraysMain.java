@@ -27,6 +27,10 @@ public class ArraysMain {
 		System.out.println("The longest sequencee of dice rolls is " + result[0] + " it happened on the " + (result[1] + 1) + "th roll. Starting with a roll of "+ randomRolls[result[1]]);
 		
 	}
+	
+	public class Borough{
+		
+	}
 	/*
 	 moves the front to the back repeatedly, exactly n times
 	 * */
