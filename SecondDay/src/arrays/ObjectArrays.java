@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class ObjectArrays {
 	
 	public ObjectArrays() {
@@ -8,13 +10,69 @@ public class ObjectArrays {
 		System.out.println(jeff);
 		*/
 		
-		Object[] people = new Object[20];
+		Person[] people = new Person[20];
 		populate(people);
-		people[0] = new Thing("coffee maker");
-		for(Object p: people) {
-			System.out.println(p);
+		//people[0] = new Thing("coffee maker");
+		for(Person p: people) {
+			p.mingle(people);
+			p.printFriends();
+			System.out.print("");
 		}
 	}
+	
+	public Person[] selectGroup(Person[] population, int length) {
+		//returns a random subgroup
+		// of Person from population with
+		// no repeats, length "length"
+		
+		Person[] group = new Person[length];
+		group[0] = selectAPerson(population);
+		for(int i = 1;i<length;i++) {
+			Person nextPerson = selectAPerson(population);
+		while(personInGroup(group, nextPerson)) {
+			nextPerson = selectAPerson(population);
+		}
+		group[i] = nextPerson;
+		}
+	return group;
+	}
+		// return the number of difference between the two arrays
+		// a "difference" means they don't have the same element at the same position
+		public int countDifferences(Person[] arr1, Person[] arr2) {
+			int counter = 0;
+			for(int i = 0;i<arr1.length;i++) {
+				if(arr1[i] == arr2[i]) {
+					continue;
+				}
+				else {
+					counter++;
+				}
+			}
+			return counter;
+		}
+		// calls count differences on two Person arrays, each array must contain the same elements, but
+		// randomly ordered
+		// Print the # of differences between the two arrays
+		//Do this 100 times, print the average(hint: average needs to be a double)
+		public void testShuffling() {
+			countDifferences(selectGroup(Person[] population, int length),selectGroup(Person[] population, int length))
+		}
+		
+		private static boolean personInGroup(Person[] group, Person nextPerson) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i<group.length;i++) {
+			if(group[i] == nextPerson){
+				return true;
+			}
+		}
+		return false;
+	}
+
+		private Person selectAPerson(Person[] population) {
+		// TODO Auto-generated method stub
+		return population[(int) (Math.random()*population.length)];
+	}
+	
 
 	private void populate(Object[] people) {
 		// TODO Auto-generated method stub
