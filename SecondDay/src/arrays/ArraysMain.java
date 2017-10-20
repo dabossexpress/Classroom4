@@ -178,7 +178,7 @@ public class ArraysMain {
 		
 		//2. size cannot be modified
 		
-		//3. Elements of an array are REFERENCE to objects.
+		//3. Elements of an array are REFERENCEs(indices) to objects.
 		//In other words, changing an element of an array changes the
 		//REFERENCE, not the object(more on this later)
 		
