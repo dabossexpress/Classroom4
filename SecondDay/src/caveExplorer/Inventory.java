@@ -10,5 +10,7 @@ public class Inventory {
 		// TODO Auto-generated method stub
 		
 	}
-
+	public String getDescription() {
+		return "You have nothing in your inventory.";
+	}
 }
