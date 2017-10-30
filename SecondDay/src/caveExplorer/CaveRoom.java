@@ -172,6 +172,11 @@ public class CaveRoom {
 		this.defaultContents = defaultContents;
 	}
 
+	public Door getDoor(int direction) {
+		// TODO Auto-generated method stub
+		return doors[direction];
+	}
+
 	
 	
 }
