@@ -99,25 +99,56 @@ public class CaveRoom {
 	
 	public void interpretInput(String input) {
 		while(!isValid(input)) {
-			System.out.println("You can only enter 'w','a','s', or 'd'.");
+			printAllowedEntry();
 			input = CaveExplorer.in.nextLine();
 		}
 		//task : convert user input into a direction
 		//DO NOT USE AN IF STATEMENT -- IF YOU MUST, USE ONLY 1
-		String dirs = "wdsa";
-		goToRoom(dirs.indexOf(input));
+		String dirs = validKeys();
+		respondToKey(dirs.indexOf(input));
+	}
+	
+	/*
+	 * overide to add more keys
+	 * */
+	public String validKeys() {
+		return "wdsa";
+	}
+	/*
+	 * override to print a custom string describing what keys do
+	 * */
+	public void printAllowedEntry() {
+		System.out.println("You can only enter 'w','a','s', or 'd'.");
 	}
 
-	private void goToRoom(int direction) {
+	private boolean isValid(String input) {
+		String validEntries = validKeys();
+		return validEntries.indexOf(input);
+	}
+	
+	private void respondToKey(int direction) {
 		// TODO Auto-generated method stub
 		// (user cannot go thru non-existent door)
-		if(borderingRooms[direction] != null && doors[direction] != null) {
-			CaveExplorer.currentRoom.leave();
-			CaveExplorer.currentRoom = borderingRooms[direction];
-			CaveExplorer.currentRoom.enter();
-			CaveExplorer.inventory.updateMap();
+		if(direction < 4) {
+			if(borderingRooms[direction] != null && doors[direction] != null) {
+				CaveExplorer.currentRoom.leave();
+				CaveExplorer.currentRoom = borderingRooms[direction];
+				CaveExplorer.currentRoom.enter();
+				CaveExplorer.inventory.updateMap();
+			}
 		}
+		else {
+			performAction(direction);
+		}
+}
+	/*
+	 * override to give response to keys other than wasd
+	 * */
+	private void performAction(int direction) {
+		// TODO Auto-generated method stub
+		System.out.println("That key does nothing");
 	}
+
 	//This will be where your group sets up all the caves and all the connections
 	public static void setUpCaves() {
 		//ALL OF THIS CODE CAN BE CHANGED
