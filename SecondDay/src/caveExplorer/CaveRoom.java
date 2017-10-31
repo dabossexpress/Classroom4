@@ -123,7 +123,7 @@ public class CaveRoom {
 
 	private boolean isValid(String input) {
 		String validEntries = validKeys();
-		return validEntries.indexOf(input);
+		return validEntries.indexOf(input) > -1 && ;
 	}
 	
 	private void respondToKey(int direction) {
