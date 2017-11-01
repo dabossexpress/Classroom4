@@ -16,5 +16,22 @@ public class CaveExplorer {
 		in = new Scanner(System.in);
 		CaveRoom.setUpCaves();
 	}
+	
+	public static void startExploring() {
+		while(playing) {
+			npcActions();
+			print(inventory.getDescription());
+			print(currentRoom.getDescription());
+			print("Whtat would you like to do?");
+			String input = in.nextLine();
+			currentRoom.interpretInput(input);
+		}
+	}
+	
+	private static void npcActions() {
+		for(NPC n: npcs) {
+			n.interact();
+		}
+	}
 
 }
