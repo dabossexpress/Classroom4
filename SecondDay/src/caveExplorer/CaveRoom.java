@@ -45,19 +45,16 @@ public class CaveRoom {
 		{
 			if (doors[i]==null)
 			{
-				continue;
-			}
-			else
-			{
 				doorFound = true;
-				directions = directions + "\n  You are able to go to "+toDirection(i)+" via a "+doors[i].getDescription()+". "+doors[i].getDetails();;
+				directions += "\n   There is a "+doors[i].getDescription() + " to " +
+						toDirection(i)+". "+doors[i].getDetails();
+			}
 			}
 			if (!doorFound)
 			{
 				directions = "Way to go dude, you're stuck.";
 			}
 		}
-	}
 
 	/**
 	 * converts an int into a direction
@@ -102,8 +99,9 @@ public class CaveRoom {
 			printAllowedEntry();
 			input = CaveExplorer.in.nextLine();
 		}
-		//task : convert user input into a direction
-		//DO NOT USE AN IF STATEMENT -- IF YOU MUST, USE ONLY 1
+		//task: convert user input into a direction
+		//DO NOT USE AN IF STATEMENT
+		//(or, if you must, don't use more than 1)
 		String dirs = validKeys();
 		respondToKey(dirs.indexOf(input));
 	}
@@ -120,10 +118,10 @@ public class CaveRoom {
 	public void printAllowedEntry() {
 		System.out.println("You can only enter 'w','a','s', or 'd'.");
 	}
-
+	
 	private boolean isValid(String input) {
 		String validEntries = validKeys();
-		return validEntries.indexOf(input) > -1 && ;
+		return validEntries.indexOf(input) > -1 && input.length() ==1;
 	}
 	
 	private void respondToKey(int direction) {
@@ -165,7 +163,7 @@ public class CaveRoom {
 		//3. Replace default rooms with custom rooms
 		// ---- WE WILL DO LATER
 		CaveExplorer.npcs = new NPC[1];
-		CaveExplorer.npcs = new NPC();
+		CaveExplorer.npcs[0] = new NPC();
 		CaveExplorer.npcs[0].setposition(1,1);
 		//4. Set your starting room
 		CaveExplorer.currentRoom = CaveExplorer.caves[0][1];
@@ -174,12 +172,6 @@ public class CaveRoom {
 		CaveRoom[][] c = CaveExplorer.caves;
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
 		
-	}
-
-	private boolean isValid(String input) {
-		// TODO Auto-generated method stub
-		String validEntries = "wdsa";
-		return validEntries.indexOf(input) > -1 && input.length() == 1;
 	}
 	
 	public String getDescription() {
@@ -208,7 +200,7 @@ public class CaveRoom {
 
 	public Door getDoor(int direction) {
 		// TODO Auto-generated method stub
-		if(direction >= 0 && direction < door.length) {
+		if(direction >= 0 && direction < doors.length) {
 			return doors[direction];
 		}
 		else {

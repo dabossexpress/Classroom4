@@ -9,12 +9,16 @@ public class CaveExplorer {
 	public static CaveRoom currentRoom;//changes based on movement
 	public static Inventory inventory;//where all objects found in a cave are kept
 	public static boolean playing = true;
+	public static NPC[] npcs;
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		in = new Scanner(System.in);
 		CaveRoom.setUpCaves();
+		
+		inventory = new Inventory();
+		startExploring();
 	}
 	
 	public static void startExploring() {
@@ -30,8 +34,14 @@ public class CaveExplorer {
 	
 	private static void npcActions() {
 		for(NPC n: npcs) {
-			n.interact();
+			n.interact(); // n.act();
 		}
+		inventory.updateMap();
+	}
+	
+	
+	public static void print(String s) {
+		System.out.println(s);
 	}
 
 }
