@@ -159,18 +159,21 @@ public class CaveRoom {
 		for(int row = 0;row<CaveExplorer.caves.length;row++) {
 			for(int col = 0; col < CaveExplorer.caves[row].length;col++) {
 				// create a "default" cave
-				CaveExplorer.caves[row][col] = new CaveRoom("This cave has coords ("+row+","+col+")");
+				CaveExplorer.caves[row][col] = new NPCRoom("This cave has coords ("+row+","+col+")");
 			}
 		}
 		//3. Replace default rooms with custom rooms
 		// ---- WE WILL DO LATER
-		
+		CaveExplorer.npcs = new NPC[1];
+		CaveExplorer.npcs = new NPC();
+		CaveExplorer.npcs[0].setposition(1,1);
 		//4. Set your starting room
 		CaveExplorer.currentRoom = CaveExplorer.caves[0][1];
 		CaveExplorer.currentRoom.enter();
+		//5. Set up doors
 		CaveRoom[][] c = CaveExplorer.caves;
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
-		//5. Set up doors
+		
 	}
 
 	private boolean isValid(String input) {
@@ -178,7 +181,7 @@ public class CaveRoom {
 		String validEntries = "wdsa";
 		return validEntries.indexOf(input) > -1 && input.length() == 1;
 	}
-
+	
 	public String getDescription() {
 		return description + "\n" + directions;
 	}
@@ -205,7 +208,12 @@ public class CaveRoom {
 
 	public Door getDoor(int direction) {
 		// TODO Auto-generated method stub
-		return doors[direction];
+		if(direction >= 0 && direction < door.length) {
+			return doors[direction];
+		}
+		else {
+			return null;
+		}
 	}
 
 	
