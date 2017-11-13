@@ -12,8 +12,8 @@ public class Trait {
 	private int index;
 	
 	public static void main(String[] args) {
-		Trait longTailed = new Trait(0);
-		Trait shortTailed = new Trait(6);
+		Trait longTailed = new Trait(1);
+		Trait shortTailed = new Trait(4);
 		System.out.println(longTailed+" and "+shortTailed+" are the same trait"
 				+ ": "+longTailed.equals(shortTailed));
 	}
