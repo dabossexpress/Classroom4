@@ -43,7 +43,7 @@ public class Searching {
 				+ "\n    Press 'enter' to begin.");
 		in.nextLine();
 
-		int index = binarySearch(numbers, 0, numbers.length-1,);
+		int index = binarySearch(numbers, 0, numbers.length-1,target);
 
 		if(index!=-1){
 			System.out.println("The number "+target+" was found at index "+index+". Did the computer win?");
@@ -54,6 +54,9 @@ public class Searching {
 	}
 	public static int binarySearch(int[] searchThis, int startIndex, int endIndex, int target) {
 		int mid = (int)(endIndex-startIndex+1/2);
+		if(searchThis[mid] == target) {
+			return mid;
+		}
 		if(target >= searchThis[mid]) {
 			binarySearch(searchThis, mid,endIndex,target);
 		}
