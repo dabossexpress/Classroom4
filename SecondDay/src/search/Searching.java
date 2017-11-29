@@ -43,7 +43,7 @@ public class Searching {
 				+ "\n    Press 'enter' to begin.");
 		in.nextLine();
 
-		int index = binarySearch(numbers, 0, numbers.length-1,target);
+		int index = search(numbers, 0, numbers.length-1,target);
 
 		if(index!=-1){
 			System.out.println("The number "+target+" was found at index "+index+". Did the computer win?");
@@ -51,17 +51,17 @@ public class Searching {
 			System.out.println("The number "+target+" was not found in the file.");
 		}
 		
-	}
+	}/*
 	public static int binarySearch(int[] searchThis, int startIndex, int endIndex, int target) {
-		int mid = (int)(endIndex-startIndex+1/2);
-		while(searchThis[mid] != target) {
+		int mid = (int)(endIndex+startIndex/2);
+		//while(startIndex <= endIndex && searchThis[mid] != target) {
 			if(searchThis[mid] >= target) {
-				binarySearch(searchThis,startIndex,searchThis[mid],target);
+				binarySearch(searchThis,startIndex,mid,target);
 			}
 			if(searchThis[mid] < target) {
-				binarySearch(searchThis, searchThis[mid],endIndex,target);
+				binarySearch(searchThis,mid,endIndex,target);
 			}
-		}
+		//}
 		return mid;
 	}
 
@@ -76,6 +76,35 @@ public class Searching {
 		delay();
 
 		return -1;
+	}*/
+	
+	
+	public static int search(int[] nums, int start, int finish, int target) 
+
+	{
+
+	if(start > finish) return -1;
+
+	else
+
+	{
+
+	int mid = (start+finish)/2;
+
+	if (nums[mid]==target) return mid;
+	 else if (nums[mid] > target)
+	/* missing code */
+
+	{
+
+	return search(nums, start, mid-1, target);
+
+	}
+
+	else return search(nums, mid+1,finish, target);
+
+	}
+
 	}
 	
 	/**
