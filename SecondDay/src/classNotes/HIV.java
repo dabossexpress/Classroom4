@@ -5,11 +5,35 @@ public class HIV {
 	static int count = 0;
 	
 	public static void main(String[] args) {
-		int value = 12;
+		/*int value = 12;
 		System.out.println(value + "!is equal to " + factorial(value));
-		System.out.println(value + " has " +countPrimeFactors(value,2)+ " prime factors.");
+		System.out.println(value + " has " +countPrimeFactors(value,2)+ " prime factors.");*/
+		move(2,"A","B","C");
 	}
-
+	
+	public static void move(int disc, String from, String other, String to) {
+		String placeholder = "";
+		String placeholder2 = "";
+		System.out.println(from +" to "+ to);
+		if(disc == 1) {
+			return;
+		}
+		else {
+			placeholder = other;
+			other = to;
+			to = placeholder;
+			move(disc-1,from,other, to);
+			placeholder2 = other;
+			from = other;
+			
+			move(disc-1,other,from,to);
+			System.out.println(from +" to "+ other);
+			//move(disc-1,other,to, from);
+			//move(disc-1,other, from, to);
+			//System.out.println(from +" to "+ to);
+		}
+	}
+	
 	public static int countPrimeFactors(int value, int testPrime) {
 		if(value%testPrime == 0 && (value > testPrime)) {
 			keepCount();
@@ -33,6 +57,8 @@ public class HIV {
 		}
 	}
 
+	
+	
 	public HIV() {
 		// TODO Auto-generated constructor stub
 	}
