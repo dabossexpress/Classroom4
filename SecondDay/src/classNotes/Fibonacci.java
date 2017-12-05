@@ -6,22 +6,21 @@ public class Fibonacci {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void fibonacciNum(int n) {
-		int sum = 0;
+	public static int fibonacciNum(int n) {
 		if(n == 0) {
-			sum = 1;
+			return 1;
 		}
 		if(n == 1) {
-			sum = 1;;
+			return 1;
 		}
 		else {
-			sum = sum + fibonacciNum(n-1) + fibonacciNum(n-2);
+			return fibonacciNum(n-1) + fibonacciNum(n-2);
 		}
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		fibonacciNum(0);
+		System.out.println(fibonacciNum(5));
 	}
 
 }

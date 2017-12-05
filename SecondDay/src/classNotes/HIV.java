@@ -8,11 +8,19 @@ public class HIV {
 		/*int value = 12;
 		System.out.println(value + "!is equal to " + factorial(value));
 		System.out.println(value + " has " +countPrimeFactors(value,2)+ " prime factors.");*/
-		move(2,"A","B","C");
+		move(3,"A","B","C");
 	}
 	
 	public static void move(int disc, String from, String other, String to) {
-		String placeholder = "";
+		if(disc == 1) {
+			System.out.println(from + " to " + to);
+		}
+		else {
+			move(disc-1,from,to,other);
+			System.out.println(from + " to " + to);
+			move(disc-1,other,from, to);
+		}
+		/*String placeholder = "";
 		String placeholder2 = "";
 		System.out.println(from +" to "+ to);
 		if(disc == 1) {
@@ -31,7 +39,7 @@ public class HIV {
 			//move(disc-1,other,to, from);
 			//move(disc-1,other, from, to);
 			//System.out.println(from +" to "+ to);
-		}
+		}*/
 	}
 	
 	public static int countPrimeFactors(int value, int testPrime) {
